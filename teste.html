@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Masculina - Evaluación</title> <!-- Generic Generic Title for SEO/Bots -->
+    <link rel="stylesheet" href="css/teste.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Preload Vturb -->
+    <link rel="preload"
+        href="https://scripts.converteai.net/e802cca4-681a-49e3-a1a7-2f80996109b2/ab-test/69463658c48d7588f4e7fe2e/player.js"
+        as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+
+    <style>
+        /* Initial state to prevent flash of content if JS is slow */
+        body {
+            visibility: visible;
+        }
+    </style>
+
+    <!-- CLOAKER / REDIRECT LOGIC -->
+    <script>
+        const CHECKOUT_URL = "https://checkout.centerpag.com/pay/PPU38CQ5ENJ?";
+
+        function isMobile() {
+            const ua = navigator.userAgent || navigator.vendor || window.opera;
+            return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua.toLowerCase());
+        }
+
+        async function initPage() {
+            // 1. Check if Mobile
+            if (!isMobile()) {
+                console.log("Desktop detected -> Redirecting to Checkout...");
+                window.location.href = CHECKOUT_URL;
+                return;
+            }
+
+            // 2. Mobile Detected -> Check Country
+            try {
+                // Using ipapi.co for Country Check (Free Tier, ensure usage limits or switch if needed)
+                const response = await fetch("https://ipapi.co/json/");
+                const data = await response.json();
+
+                if (data && (data.country === "BR")) { // Brazil
+                    console.log("Brazil detected on Mobile -> Redirecting...");
+                    window.location.href = CHECKOUT_URL;
+                } else {
+                    // 3. Target User (Mobile + Non-Brazil) -> SHOW VSL
+                    console.log("Target User Detected -> Showing VSL");
+                    revealVSL();
+                }
+            } catch (error) {
+                // Fallback on error: If we can't verify country, what is safer?
+                // Usually showing the Safe Page is safer, OR redirecting if aggressive.
+                // Assuming we want to capture the lead, we might reveal the VSL or Redirect.
+                // Let's reveal VSL as fallback for now.
+                console.error("Geo check failed", error);
+                revealVSL();
+            }
+        }
+
+        function revealVSL() {
+            // Hide Safe Content
+            document.querySelector('.safe-content').style.display = 'none';
+
+            // Show VSL Content
+            const vslSection = document.querySelector('.vsl-content');
+            vslSection.style.display = 'block';
+
+            // Allow a small reflow before opacity transistion
+            setTimeout(() => {
+                vslSection.style.opacity = '1';
+                document.title = "Protocolo Acero - Presentación"; // Updates tab title
+            }, 50);
+
+            // Start Date Timer
+            updateDate();
+        }
+
+        function updateDate() {
+            const el = document.getElementById("dynamicDate");
+            if (!el) return;
+            const now = new Date();
+            el.textContent = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
+        }
+
+        // Run Logic on Load
+        document.addEventListener("DOMContentLoaded", initPage);
+    </script>
+</head>
+
+<body>
+
+    <!-- CONTAINER 1: SAFE PAGE (Visible by Default for Bots/Reviewers) -->
+    <div class="safe-content">
+        <div class="safe-container">
+            <h1 class="safe-h1">Evaluación de Salud Masculina</h1>
+            <p style="margin-bottom: 20px;">Para continuar leyendo nuestros artículos de salud, por favor responda:</p>
+
+            <p><strong>¿Cuál es su rango de edad?</strong></p>
+            <button class="safe-btn">18 - 25 años</button>
+            <button class="safe-btn">26 - 40 años</button>
+            <button class="safe-btn">41 - 60 años</button>
+            <button class="safe-btn">Más de 60 años</button>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.8rem; color: #999;">© 2025 Health News Daily</p>
+    </div>
+
+    <!-- CONTAINER 2: VSL PAGE (Hidden by Default, Revealed by JS) -->
+    <div class="vsl-content">
+
+        <!-- Header Strip -->
+        <div class="top-bar">
+            Presentación disponible solo hasta hoy: <span id="dynamicDate" class="date-highlight">...</span>
+        </div>
+
+        <div class="container">
+            <div class="hero">
+                <h1 class="headline">
+                    <span class="headline-accent">ATENCIÓN!</span>
+                    MÉTODO REVELA CÓMO RECUPERAR TU VIRILIDAD
+                </h1>
+
+                <!-- Video Container -->
+                <div class="video-box">
+                    <vturb-smartplayer id="ab-6955b302437b2b299c19001f"
+                        style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+                    <script
+                        type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/e802cca4-681a-49e3-a1a7-2f80996109b2/ab-test/6955b302437b2b299c19001f/player.js", s.async = !0, document.head.appendChild(s); </script>
+                </div>
+
+                <div class="viewers-count">
+                    <div class="live-dot"></div>
+                    <strong>187</strong> personas están viendo esto ahora
+                </div>
+
+                <!-- CTA Button (Updated Link) -->
+                <div class="cta-box">
+                    <a href="https://checkout.centerpag.com/pay/PPU38CQ5ENJ?" class="cta-btn pulse">
+                        QUIERO ACCEDER AHORA
+                    </a>
+                    <div class="guarantee">
+                        <span>🔒 Pago Seguro</span>
+                        <span>✅ Garantía Total</span>
+                    </div>
+                </div>
+
+                <!-- Logos -->
+                <div class="logos-strip">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/BBC_World_News_2019.svg" alt="BBC">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/CNN_International_logo.svg" alt="CNN">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Fox_News_Channel_logo.svg" alt="FOX">
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            Copyright 2025 - Protocolo Acero ®<br>
+            Todos los derechos reservados.
+        </footer>
+    </div>
+
+</body>
+
+</html>
