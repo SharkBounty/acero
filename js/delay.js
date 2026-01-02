@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // TEMPO EM SEGUNDOS PARA APARECER O BOTÃO
     // 30 minutos = 30 * 60 = 1800 segundos
-    const SECONDS_TO_DISPLAY = 1800;
+    const SECONDS_TO_DISPLAY = 1;
 
     const CLASS_TO_DISPLAY = ".delayed-content";
     const STORAGE_KEY = "already_watched_30min";
