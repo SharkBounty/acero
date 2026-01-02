@@ -1,0 +1,147 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo Secreto</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- ⚠️ COLE SEUS PIXELS E SCRIPTS DE TRACKING (FACEBOOK/GOOGLE) AQUI ⚠️ -->
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2271934419978003');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2271934419978003&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+
+    <script>
+        window.pixelId = "693c3c0d1fdb5ec577c9a070";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+    </script>
+
+    <!-- NOTE: The provided Token (EAARFH...) is for server-side Conversion API (CAPI). 
+         It cannot be used directly in standard HTML pixel code. 
+         If you use a specific CAPI tool script, place it here. -->
+    <script>!function (i, n) { i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now()) }(window, performance);</script>
+    <link rel="preload" href="https://scripts.converteai.net/423209fc-08a0-4af2-8724-b3af98741527/ab-test/6940cfa47411257a2fe5b010/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
+</head>
+
+<body>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="headline-box">
+                <h1 class="headline" style="color: #ff0000; font-size: 3rem; margin-bottom: 30px;">
+                    ATENCIÓN
+                </h1>
+            </div>
+
+            <div class="video-wrapper">
+                <!-- ⬇️ ⬇️ ⬇️ COLE O CÓDIGO DO SEU PLAYER (VTURB) AQUI ABAIXO ⬇️ ⬇️ ⬇️ -->
+
+                <vturb-smartplayer id="ab-6940cfa47411257a2fe5b010" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>
+                <script type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/423209fc-08a0-4af2-8724-b3af98741527/ab-test/6940cfa47411257a2fe5b010/player.js", s.async = !0, document.head.appendChild(s); </script>
+
+                <!-- ⬆️ ⬆️ ⬆️ FIM DO CÓDIGO DO PLAYER ⬆️ ⬆️ ⬆️ -->
+            </div>
+
+            <div class="delayed-content">
+                <a href="https://pay.hotmart.com/V103374224C" class="cta-button">
+                    ¡QUIERO ACCEDER AHORA!
+                    <span style="display: block; font-size: 0.8rem; font-weight: 500; opacity: 0.9; margin-top: 5px;">Oferta
+                        por tiempo limitado</span>
+                </a>
+
+                <div class="guarantee-badge">
+                    <span>🔒 Pago Seguro</span>
+                    <span>✅ Garantía de 7 Días</span>
+                </div>
+            </div>
+
+            <!-- Logos Image inserted below CTA -->
+            <div class="logos-container" style="text-align: center; margin-bottom: 40px;">
+                <img src="images/logos.jpg" alt="CNN, El Pais, Cambridge, Urology" style="max-width: 500px; height: auto; opacity: 0.8;">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" id="t">Términos</a>
+                <a href="#">Privacidad</a>
+            </div>
+            <p style="margin-top: 10px; opacity: 0.5;">� 2024</p>
+        </div>
+    </footer>
+
+    <!-- Social Proof Notifications -->
+    <script src="js/notifications.js"></script>
+
+    <!-- Script de Delay Ativado -->
+    <script src="js/delay.js"></script>
+
+    <!-- ================= BACK REDIRECT ================= -->
+    <script>
+        (function () {
+            const BACK_REDIRECT_URL = "https://promocion-protocolo.netlify.app/";
+            const DELAY_TIME = 1800 * 1000;
+            let ativo = false;
+            let done = false;
+
+            setTimeout(() => ativo = true, DELAY_TIME);
+
+            // Botão voltar (mais confiável)
+            history.pushState({ page: 1 }, "", location.href);
+            window.addEventListener("popstate", function () {
+                if (ativo && !done) {
+                    done = true;
+                    location.href = BACK_REDIRECT_URL;
+                }
+            });
+
+            // Abandono da página (mobile + desktop)
+            document.addEventListener("visibilitychange", function () {
+                if (ativo && !done && document.visibilityState === "hidden") {
+                    done = true;
+                    location.href = BACK_REDIRECT_URL;
+                }
+            });
+
+            // Fallback moderno
+            window.addEventListener("pagehide", function () {
+                if (ativo && !done) {
+                    done = true;
+                    location.href = BACK_REDIRECT_URL;
+                }
+            });
+        })();
+    </script>
+    <!-- ================= FIM BACK REDIRECT ================= -->
+
+
+
+</body></html>
