@@ -6,7 +6,7 @@
     <title>Protocolo Acero - Oficial</title>
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- <style>
+    <style>
         /* CSS RESET & RESPONSIVIDADE */
         body { font-family: sans-serif; margin: 0; padding: 0; background-color: #fff; }
         .container { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 15px; box-sizing: border-box; }
@@ -98,7 +98,7 @@
         a.setAttribute("defer", "");
         a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
         document.head.appendChild(a);
-    </script> -->
+    </script>
 </head>
 
 <body>
@@ -110,11 +110,11 @@
                     
                 </h1>
             </div>
-<!-- 
+
             <div class="video-wrapper">
                 <vturb-smartplayer id="ab-6940cfa47411257a2fe5b010" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>
                 <script type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/423209fc-08a0-4af2-8724-b3af98741527/ab-test/6940cfa47411257a2fe5b010/player.js", s.async = !0, document.head.appendChild(s); </script>
-            </div> -->
+            </div>
 
             <div class="logos-container" style="text-align: center; margin: 20px auto 40px auto; padding: 0 10px;">
                 <img src="images/logos.jpg" alt="Certificados" style="max-width: 100%; width: 450px; height: auto; opacity: 0.7; display: inline-block;">
