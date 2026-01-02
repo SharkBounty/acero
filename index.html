@@ -1,11 +1,77 @@
-<!DOCTYPE html><html lang="es"><head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocolo Secreto</title>
+    <title>Protocolo Acero - Oficial</title>
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- ⚠️ COLE SEUS PIXELS E SCRIPTS DE TRACKING (FACEBOOK/GOOGLE) AQUI ⚠️ -->
-    <!-- Meta Pixel Code -->
+    <style>
+        /* CSS RESET & RESPONSIVIDADE */
+        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #fff; }
+        .container { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 15px; box-sizing: border-box; }
+        
+        .headline-box { padding: 40px 10px 20px 10px; text-align: center; }
+        
+        .pre-headline { 
+            color: #ff0000; 
+            font-size: 0.9rem; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .main-headline { 
+            color: #1a1a1a; 
+            font-size: 1.8rem; /* Mobile */
+            line-height: 1.2; 
+            font-weight: 800; 
+            margin: 0 auto 15px auto;
+            max-width: 850px;
+        }
+
+        .sub-headline { 
+            font-size: 1rem; 
+            color: #555; 
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .highlight { color: #ff0000; }
+
+        .video-wrapper { 
+            width: 100%; 
+            max-width: 760px; 
+            margin: 20px auto; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #000;
+        }
+
+        .cta-button {
+            display: block;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            padding: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 8px;
+            text-align: center;
+            margin: 30px auto 10px auto;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (min-width: 768px) {
+            .main-headline { font-size: 2.8rem; }
+            .pre-headline { font-size: 1.1rem; }
+            .sub-headline { font-size: 1.2rem; }
+            .cta-button { font-size: 1.6rem; }
+        }
+    </style>
+
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
@@ -23,10 +89,8 @@
     </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=2271934419978003&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
 
     <script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
-
     <script>
         window.pixelId = "693c3c0d1fdb5ec577c9a070";
         var a = document.createElement("script");
@@ -35,92 +99,64 @@
         a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
         document.head.appendChild(a);
     </script>
-
-    <!-- NOTE: The provided Token (EAARFH...) is for server-side Conversion API (CAPI). 
-         It cannot be used directly in standard HTML pixel code. 
-         If you use a specific CAPI tool script, place it here. -->
-    <script>!function (i, n) { i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now()) }(window, performance);</script>
-    <link rel="preload" href="https://scripts.converteai.net/423209fc-08a0-4af2-8724-b3af98741527/ab-test/6940cfa47411257a2fe5b010/player.js" as="script">
-    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-    <link rel="dns-prefetch" href="https://cdn.converteai.net">
-    <link rel="dns-prefetch" href="https://scripts.converteai.net">
-    <link rel="dns-prefetch" href="https://images.converteai.net">
-    <link rel="dns-prefetch" href="https://m3u8.vturb.net">
-    <link rel="dns-prefetch" href="https://api.vturb.com.br">
 </head>
 
 <body>
 
     <section class="hero-section">
         <div class="container">
-            <div class="headline-box" style="padding: 20px; text-align: center;">
-            <h2 style="color: #ff0000; font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; text-transform: uppercase;">
-                Método Natural Descubierto
-            </h2>
-            <h1 class="headline" style="color: #1a1a1a; font-size: 2.2rem; line-height: 1.2; margin-bottom: 20px; font-family: sans-serif;">
-                El <span style="color: #ff0000;">"Truco del Acero"</span> de 30 segundos que reactiva tu flujo y garantiza una firmeza inquebrantable
-            </h1>
-            <p style="font-size: 1.1rem; color: #555; margin-bottom: 20px;">
-                (Mira este video antes de que sea eliminado por las grandes farmacéuticas)
-            </p>
-        </div>
+            <div class="headline-box">
+                <span class="pre-headline">Método Natural Descubierto</span>
+                <h1 class="main-headline">
+                    El <span class="highlight">"Truco del Acero"</span> de 30 segundos que reactiva tu flujo y garantiza una firmeza inquebrantable
+                </h1>
+                <p class="sub-headline">
+                    (Mira este video antes de que sea eliminado por las grandes farmacéuticas)
+                </p>
+            </div>
 
             <div class="video-wrapper">
-                <!-- ⬇️ ⬇️ ⬇️ COLE O CÓDIGO DO SEU PLAYER (VTURB) AQUI ABAIXO ⬇️ ⬇️ ⬇️ -->
-
                 <vturb-smartplayer id="ab-6940cfa47411257a2fe5b010" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>
                 <script type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/423209fc-08a0-4af2-8724-b3af98741527/ab-test/6940cfa47411257a2fe5b010/player.js", s.async = !0, document.head.appendChild(s); </script>
-
-                <!-- ⬆️ ⬆️ ⬆️ FIM DO CÓDIGO DO PLAYER ⬆️ ⬆️ ⬆️ -->
             </div>
 
-            <div class="delayed-content">
+            <div class="delayed-content" style="text-align: center;">
                 <a href="https://pay.hotmart.com/V103374224C" class="cta-button">
                     ¡QUIERO ACCEDER AHORA!
-                    <span style="display: block; font-size: 0.8rem; font-weight: 500; opacity: 0.9; margin-top: 5px;">Oferta
-                        por tiempo limitado</span>
+                    <span style="display: block; font-size: 0.8rem; font-weight: 500; opacity: 0.9; margin-top: 5px;">Oferta por tiempo limitado</span>
                 </a>
 
-                <div class="guarantee-badge">
-                    <span>🔒 Pago Seguro</span>
-                    <span>✅ Garantía de 7 Días</span>
+                <div class="guarantee-badge" style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                    <span>🔒 Pago Seguro</span> | <span>✅ Garantía de 7 Días</span>
                 </div>
-            </div>
 
-            <!-- Logos Image inserted below CTA -->
-            <div class="logos-container" style="text-align: center; margin-bottom: 40px;">
-                <img src="images/logos.jpg" alt="CNN, El Pais, Cambridge, Urology" style="max-width: 500px; height: auto; opacity: 0.8;">
+                <div class="logos-container" style="text-align: center; margin: 40px 0;">
+                    <img src="images/logos.jpg" alt="Certificados" style="max-width: 100%; width: 500px; height: auto; opacity: 0.7;">
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer style="padding: 40px 0; text-align: center; border-top: 1px solid #eee;">
         <div class="container">
             <div class="footer-links">
-                <a href="#" id="t">Términos</a>
-                <a href="#">Privacidad</a>
+                <a href="#" style="color: #999; text-decoration: none; margin: 0 10px;">Términos</a>
+                <a href="#" style="color: #999; text-decoration: none; margin: 0 10px;">Privacidad</a>
             </div>
-            <p style="margin-top: 10px; opacity: 0.5;">� 2024</p>
+            <p style="margin-top: 20px; opacity: 0.5; font-size: 0.8rem;">© 2024 Protocolo Acero. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Social Proof Notifications -->
     <script src="js/notifications.js"></script>
-
-    <!-- Script de Delay Ativado -->
     <script src="js/delay.js"></script>
 
-    <!-- ================= BACK REDIRECT ================= -->
     <script>
         (function () {
             const BACK_REDIRECT_URL = "https://promocion-protocolo.netlify.app/";
             const DELAY_TIME = 1800 * 1000;
             let ativo = false;
             let done = false;
-
             setTimeout(() => ativo = true, DELAY_TIME);
-
-            // Botão voltar (mais confiável)
             history.pushState({ page: 1 }, "", location.href);
             window.addEventListener("popstate", function () {
                 if (ativo && !done) {
@@ -128,26 +164,7 @@
                     location.href = BACK_REDIRECT_URL;
                 }
             });
-
-            // Abandono da página (mobile + desktop)
-            document.addEventListener("visibilitychange", function () {
-                if (ativo && !done && document.visibilityState === "hidden") {
-                    done = true;
-                    location.href = BACK_REDIRECT_URL;
-                }
-            });
-
-            // Fallback moderno
-            window.addEventListener("pagehide", function () {
-                if (ativo && !done) {
-                    done = true;
-                    location.href = BACK_REDIRECT_URL;
-                }
-            });
         })();
     </script>
-    <!-- ================= FIM BACK REDIRECT ================= -->
-
-
-
-</body></html>
+</body>
+</html>
