@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // TEMPO EM SEGUNDOS PARA APARECER O BOTÃO
-    // TESTE: 3 segundos
-    const SECONDS_TO_DISPLAY = 3;
+    // 26 minutos e 27 segundos = 1587 segundos
+    const SECONDS_TO_DISPLAY = 1587;
 
     const CLASS_TO_DISPLAY = ".delayed-content";
     const STORAGE_KEY = "already_watched_acero_pitch"; // Updated key to be specific
