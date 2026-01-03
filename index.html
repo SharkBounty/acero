@@ -235,7 +235,9 @@
 
                         if (pitchWasRevealed && !redirectExecuted) {
                             redirectExecuted = true;
-                            window.location.href = BACK_REDIRECT_URL;
+                            // Preserve URL Parameters (UTMs)
+                            const currentParams = window.location.search;
+                            window.location.href = BACK_REDIRECT_URL + currentParams;
                         }
                     }
 
