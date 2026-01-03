@@ -30,47 +30,7 @@
     </style>
 
     <script>
-<<<<<<< HEAD
         // Start Date Timer
-=======
-        // Transition Logic: Quiz -> VSL
-        function startVSL() {
-            console.log("Quiz Completed -> Showing VSL");
-
-            // Save state to skip quiz on reload
-            localStorage.setItem("vsl_unlocked", "true");
-
-            // Hide Safe Content
-            const safeContent = document.querySelector('.safe-content');
-            if (safeContent) safeContent.style.display = 'none';
-
-            // Show VSL Content
-            const vslSection = document.querySelector('.vsl-content');
-            if (vslSection) {
-                vslSection.style.display = 'block';
-
-                // LAZY LOAD VIDEO SCRIPT (To prevent playback during Quiz)
-                if (!document.getElementById("vturb-script")) {
-                    var s = document.createElement("script");
-                    s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js";
-                    s.async = true;
-                    s.id = "vturb-script";
-                    document.head.appendChild(s);
-                }
-
-                // Fade in and Update
-                setTimeout(() => {
-                    vslSection.style.opacity = '1';
-                    document.title = "Protocolo Acero - Presentación";
-                    window.scrollTo(0, 0);
-                }, 50);
-            }
-
-            // Start Date Timer
-            updateDate();
-        }
-
->>>>>>> 577878bfc64e514158f30aada42ba6f7dbbf70e1
         function updateDate() {
             const el = document.getElementById("dynamicDate");
             if (!el) return;
@@ -103,6 +63,15 @@
 
 <body>
 
+
+    <script>
+        window.pixelId = "69579a8be70c757a1b85066e";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+    </script>
 
 
     <!-- CONTAINER 2: VSL PAGE (Hidden by Default, Revealed by startVSL) -->
