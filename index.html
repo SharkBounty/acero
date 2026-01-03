@@ -23,50 +23,14 @@
     <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
 
     <style>
-        /* Initial state */
+        /* Initial state - VSL Visible */
         body {
             visibility: visible;
         }
     </style>
 
     <script>
-        // Transition Logic: Quiz -> VSL
-        function startVSL() {
-            console.log("Quiz Completed -> Showing VSL");
-
-            // Save state to skip quiz on reload
-            localStorage.setItem("vsl_unlocked", "true");
-
-            // Hide Safe Content
-            const safeContent = document.querySelector('.safe-content');
-            if (safeContent) safeContent.style.display = 'none';
-
-            // Show VSL Content
-            const vslSection = document.querySelector('.vsl-content');
-            if (vslSection) {
-                vslSection.style.display = 'block';
-
-                // LAZY LOAD VIDEO SCRIPT (To prevent playback during Quiz)
-                if (!document.getElementById("vturb-script")) {
-                    var s = document.createElement("script");
-                    s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js";
-                    s.async = true;
-                    s.id = "vturb-script";
-                    document.head.appendChild(s);
-                }
-
-                // Fade in and Update
-                setTimeout(() => {
-                    vslSection.style.opacity = '1';
-                    document.title = "Protocolo Acero - Presentación";
-                    window.scrollTo(0, 0);
-                }, 50);
-            }
-
-            // Start Date Timer
-            updateDate();
-        }
-
+        // Start Date Timer
         function updateDate() {
             const el = document.getElementById("dynamicDate");
             if (!el) return;
@@ -74,10 +38,24 @@
             el.textContent = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
         }
 
-        // Auto-skip quiz if already unlocked
         document.addEventListener("DOMContentLoaded", function () {
-            if (localStorage.getItem("vsl_unlocked") === "true") {
-                startVSL();
+            updateDate();
+
+            // LAZY LOAD VIDEO SCRIPT
+            if (!document.getElementById("vturb-script")) {
+                var s = document.createElement("script");
+                s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js";
+                s.async = true;
+                s.id = "vturb-script";
+                document.head.appendChild(s);
+            }
+
+            // Fade in VSL
+            const vslSection = document.querySelector('.vsl-content');
+            if (vslSection) {
+                setTimeout(() => {
+                    vslSection.style.opacity = '1';
+                }, 50);
             }
         });
     </script>
@@ -85,107 +63,6 @@
 
 <body>
 
-    <!-- CONTAINER 1: SAFE PAGE (THE QUIZ) -->
-    <div class="safe-content">
-        <div class="wrap">
-            <header class="safe-header">
-                <h1>Rutina Masculina – Cuestionario</h1>
-                <p>Etapas rápidas para entender hábitos del día a día.</p>
-            </header>
-
-            <!-- ETAPAS 1 a 3 (Reduced) -->
-            <div class="step active">
-                <div class="q-text">1) ¿Cuál es tu rango de edad?</div>
-                <div class="opts">
-                    <div class="opt">18–29</div>
-                    <div class="opt">30–39</div>
-                    <div class="opt">40–49</div>
-                    <div class="opt">50+</div>
-                </div>
-            </div>
-            <div class="step">
-                <div class="q-text">2) ¿Cómo evalúas tu nivel de energía diaria?</div>
-                <div class="opts">
-                    <div class="opt">Alto</div>
-                    <div class="opt">Medio</div>
-                    <div class="opt">Bajo</div>
-                </div>
-            </div>
-            <div class="step">
-                <div class="q-text">3) ¿Realizas actividad física semanalmente?</div>
-                <div class="opts">
-                    <div class="opt">Sí</div>
-                    <div class="opt">A veces</div>
-                    <div class="opt">No</div>
-                </div>
-            </div>
-
-            <!-- RESULTADO -->
-            <div class="step" id="result-step">
-                <div class="q-text">Resultado</div>
-                <p>Según tus respuestas, muchos hombres comienzan con ajustes simples de hábitos y rutina.
-                    Un material informativo reúne un <strong>truco tradicional con bicarbonato</strong>, presentado de
-                    forma cultural y educativa, enfocado en el bienestar general.</p>
-                <p style="margin:14px 0">¿Deseas conocer la guía informativa?</p>
-
-                <!-- TRANSITION BUTTON: Goes to VSL -->
-                <button class="btn-safe-cta" onclick="startVSL()">VER LA GUÍA</button>
-            </div>
-
-            <div class="safe-nav">
-                <div class="progress-text" id="progress">Etapa 1 de 3</div>
-                <div>
-                    <button class="btn-prev" onclick="prevStep()">Volver</button>
-                    <button class="btn-next" onclick="nextStep()">Continuar</button>
-                </div>
-            </div>
-        </div>
-
-        <footer class="safe-footer">
-            <div>Contenido informativo y educativo.</div>
-            <div class="disclaimer">No sustituye la orientación profesional. No realiza promesas de cura ni tratamiento.
-            </div>
-        </footer>
-    </div>
-
-    <!-- QUIZ LOGIC -->
-    <script>
-        const steps = document.querySelectorAll('.step');
-        const progress = document.getElementById('progress');
-        const nav = document.querySelector('.safe-nav');
-        let currentStep = 0;
-
-        function showStep() {
-            steps.forEach((s, idx) => s.classList.toggle('active', idx === currentStep));
-
-            if (currentStep < 3) {
-                progress.textContent = `Etapa ${currentStep + 1} de 3`;
-                nav.style.display = 'flex';
-            } else {
-                progress.textContent = 'Resultado';
-                nav.style.display = 'none';
-            }
-        }
-
-        function nextStep() {
-            if (currentStep < steps.length - 1) {
-                currentStep++;
-                showStep();
-            }
-        }
-
-        function prevStep() {
-            if (currentStep > 0) {
-                currentStep--;
-                showStep();
-            }
-        }
-
-        document.querySelectorAll('.opt').forEach(o => {
-            o.addEventListener('click', nextStep);
-        });
-        showStep();
-    </script>
 
     <script>
         window.pixelId = "69579a8be70c757a1b85066e";
@@ -215,7 +92,6 @@
                 <div class="video-box">
                     <vturb-smartplayer id="vid-69574056bfcaaae23ccb95b3"
                         style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
-                    <!-- Script injected via startVSL() for Lazy Load -->
                 </div>
 
                 <div class="viewers-count">
