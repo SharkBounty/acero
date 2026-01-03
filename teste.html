@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salud Masculina - Evaluación</title> <!-- Generic Generic Title for SEO/Bots -->
+    <title>Evaluación de Rutina</title>
     <link rel="stylesheet" href="css/teste.css">
 
     <!-- Google Fonts -->
@@ -14,59 +14,22 @@
 
     <!-- Preload Vturb -->
     <link rel="preload"
-        href="https://scripts.converteai.net/e802cca4-681a-49e3-a1a7-2f80996109b2/ab-test/69463658c48d7588f4e7fe2e/player.js"
+        href="https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js"
         as="script">
     <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
 
     <style>
-        /* Initial state to prevent flash of content if JS is slow */
+        /* Initial state */
         body {
             visibility: visible;
         }
     </style>
 
-    <!-- CLOAKER / REDIRECT LOGIC -->
     <script>
-        const CHECKOUT_URL = "https://checkout.centerpag.com/pay/PPU38CQ5ENJ?";
+        // Transition Logic: Quiz -> VSL
+        function startVSL() {
+            console.log("Quiz Completed -> Showing VSL");
 
-        function isMobile() {
-            const ua = navigator.userAgent || navigator.vendor || window.opera;
-            return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua.toLowerCase());
-        }
-
-        async function initPage() {
-            // 1. Check if Mobile
-            if (!isMobile()) {
-                console.log("Desktop detected -> Redirecting to Checkout...");
-                window.location.href = CHECKOUT_URL;
-                return;
-            }
-
-            // 2. Mobile Detected -> Check Country
-            try {
-                // Using ipapi.co for Country Check (Free Tier, ensure usage limits or switch if needed)
-                const response = await fetch("https://ipapi.co/json/");
-                const data = await response.json();
-
-                if (data && (data.country === "BR")) { // Brazil
-                    console.log("Brazil detected on Mobile -> Redirecting...");
-                    window.location.href = CHECKOUT_URL;
-                } else {
-                    // 3. Target User (Mobile + Non-Brazil) -> SHOW VSL
-                    console.log("Target User Detected -> Showing VSL");
-                    revealVSL();
-                }
-            } catch (error) {
-                // Fallback on error: If we can't verify country, what is safer?
-                // Usually showing the Safe Page is safer, OR redirecting if aggressive.
-                // Assuming we want to capture the lead, we might reveal the VSL or Redirect.
-                // Let's reveal VSL as fallback for now.
-                console.error("Geo check failed", error);
-                revealVSL();
-            }
-        }
-
-        function revealVSL() {
             // Hide Safe Content
             document.querySelector('.safe-content').style.display = 'none';
 
@@ -74,10 +37,12 @@
             const vslSection = document.querySelector('.vsl-content');
             vslSection.style.display = 'block';
 
-            // Allow a small reflow before opacity transistion
+            // Fade in and Update
             setTimeout(() => {
                 vslSection.style.opacity = '1';
-                document.title = "Protocolo Acero - Presentación"; // Updates tab title
+                document.title = "Protocolo Acero - Presentación";
+                // Scroll to top
+                window.scrollTo(0, 0);
             }, 50);
 
             // Start Date Timer
@@ -90,30 +55,169 @@
             const now = new Date();
             el.textContent = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
         }
-
-        // Run Logic on Load
-        document.addEventListener("DOMContentLoaded", initPage);
     </script>
 </head>
 
 <body>
 
-    <!-- CONTAINER 1: SAFE PAGE (Visible by Default for Bots/Reviewers) -->
+    <!-- CONTAINER 1: SAFE PAGE (THE QUIZ) -->
     <div class="safe-content">
-        <div class="safe-container">
-            <h1 class="safe-h1">Evaluación de Salud Masculina</h1>
-            <p style="margin-bottom: 20px;">Para continuar leyendo nuestros artículos de salud, por favor responda:</p>
+        <div class="wrap">
+            <header class="safe-header">
+                <h1>Rutina Masculina – Cuestionario</h1>
+                <p>Etapas rápidas para entender hábitos del día a día.</p>
+            </header>
 
-            <p><strong>¿Cuál es su rango de edad?</strong></p>
-            <button class="safe-btn">18 - 25 años</button>
-            <button class="safe-btn">26 - 40 años</button>
-            <button class="safe-btn">41 - 60 años</button>
-            <button class="safe-btn">Más de 60 años</button>
+            <!-- ETAPAS 1 a 10 -->
+            <div class="step active">
+                <div class="q-text">1) ¿Cuál es tu rango de edad?</div>
+                <div class="opts">
+                    <div class="opt">18–29</div>
+                    <div class="opt">30–39</div>
+                    <div class="opt">40–49</div>
+                    <div class="opt">50+</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="q-text">2) ¿Cómo evalúas tu nivel de energía diaria?</div>
+                <div class="opts">
+                    <div class="opt">Alto</div>
+                    <div class="opt">Medio</div>
+                    <div class="opt">Bajo</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="q-text">3) Tu rutina de sueño suele ser:</div>
+                <div class="opts">
+                    <div class="opt">Regular</div>
+                    <div class="opt">Irregular</div>
+                    <div class="opt">Insuficiente</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="q-text">4) ¿Realizas actividad física semanalmente?</div>
+                <div class="opts">
+                    <div class="opt">Sí</div>
+                    <div class="opt">A veces</div>
+                    <div class="opt">No</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="q-text">5) ¿Cómo evalúas tu nivel de estrés?</div>
+                <div class="opts">
+                    <div class="opt">Bajo</div>
+                    <div class="opt">Moderado</div>
+                    <div class="opt">Alto</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="q-text">6) Consumo de alcohol:</div>
+                <div class="opts">
+                    <div class="opt">Raro</div>
+                    <div class="opt">Moderado</div>
+                    <div class="opt">Frecuente</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="q-text">7) Alimentación en el día a día:</div>
+                <div class="opts">
+                    <div class="opt">Equilibrada</div>
+                    <div class="opt">Mixta</div>
+                    <div class="opt">Desordenada</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="q-text">8) ¿Ya buscaste alternativas naturales para el bienestar?</div>
+                <div class="opts">
+                    <div class="opt">Sí</div>
+                    <div class="opt">No</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="q-text">9) ¿Prefieres orientaciones simples o planes complejos?</div>
+                <div class="opts">
+                    <div class="opt">Simples</div>
+                    <div class="opt">Complejos</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="q-text">10) ¿Estás abierto a ajustes de rutina con ingredientes comunes?</div>
+                <div class="opts">
+                    <div class="opt">Sí</div>
+                    <div class="opt">Tal vez</div>
+                    <div class="opt">No</div>
+                </div>
+            </div>
+
+            <!-- RESULTADO -->
+            <div class="step" id="result-step">
+                <div class="q-text">Resultado</div>
+                <p>Según tus respuestas, muchos hombres comienzan con ajustes simples de hábitos y rutina.
+                    Un material informativo reúne un <strong>truco tradicional con bicarbonato</strong>, presentado de
+                    forma cultural y educativa, enfocado en el bienestar general.</p>
+                <p style="margin:14px 0">¿Deseas conocer la guía informativa?</p>
+
+                <!-- TRANSITION BUTTON: Goes to VSL -->
+                <button class="btn-safe-cta" onclick="startVSL()">VER LA GUÍA</button>
+            </div>
+
+            <div class="safe-nav">
+                <div class="progress-text" id="progress">Etapa 1 de 10</div>
+                <div>
+                    <button class="btn-prev" onclick="prevStep()">Volver</button>
+                    <button class="btn-next" onclick="nextStep()">Continuar</button>
+                </div>
+            </div>
         </div>
-        <p style="margin-top: 2rem; font-size: 0.8rem; color: #999;">© 2025 Health News Daily</p>
+
+        <footer class="safe-footer">
+            <div>Contenido informativo y educativo.</div>
+            <div class="disclaimer">No sustituye la orientación profesional. No realiza promesas de cura ni tratamiento.
+            </div>
+        </footer>
     </div>
 
-    <!-- CONTAINER 2: VSL PAGE (Hidden by Default, Revealed by JS) -->
+    <!-- QUIZ LOGIC -->
+    <script>
+        const steps = document.querySelectorAll('.step');
+        const progress = document.getElementById('progress');
+        const nav = document.querySelector('.safe-nav');
+        let currentStep = 0;
+
+        function showStep() {
+            steps.forEach((s, idx) => s.classList.toggle('active', idx === currentStep));
+
+            if (currentStep < 10) {
+                progress.textContent = `Etapa ${currentStep + 1} de 10`;
+                nav.style.display = 'flex';
+            } else {
+                progress.textContent = 'Resultado';
+                nav.style.display = 'none';
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                showStep();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                showStep();
+            }
+        }
+
+        document.querySelectorAll('.opt').forEach(o => {
+            o.addEventListener('click', nextStep);
+        });
+        showStep();
+    </script>
+
+
+    <!-- CONTAINER 2: VSL PAGE (Hidden by Default, Revealed by startVSL) -->
     <div class="vsl-content">
 
         <!-- Header Strip -->
@@ -130,10 +234,10 @@
 
                 <!-- Video Container -->
                 <div class="video-box">
-                    <vturb-smartplayer id="ab-6955b302437b2b299c19001f"
+                    <vturb-smartplayer id="vid-69574056bfcaaae23ccb95b3"
                         style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
                     <script
-                        type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/e802cca4-681a-49e3-a1a7-2f80996109b2/ab-test/6955b302437b2b299c19001f/player.js", s.async = !0, document.head.appendChild(s); </script>
+                        type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js", s.async = !0, document.head.appendChild(s); </script>
                 </div>
 
                 <div class="viewers-count">
@@ -141,7 +245,7 @@
                     <strong>187</strong> personas están viendo esto ahora
                 </div>
 
-                <!-- CTA Button (Updated Link) -->
+                <!-- CTA Button (Centerpag Checkout) -->
                 <div class="cta-box">
                     <a href="https://checkout.centerpag.com/pay/PPU38CQ5ENJ?" class="cta-btn pulse">
                         QUIERO ACCEDER AHORA

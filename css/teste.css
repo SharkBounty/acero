@@ -1,6 +1,8 @@
 :root {
-    --primary-red: #D32F2F; /* Premium Deep Red */
-    --accent-red: #ff0000; /* Brighter for urgency */
+    --primary-red: #D32F2F;
+    /* Premium Deep Red */
+    --accent-red: #ff0000;
+    /* Brighter for urgency */
     --dark-bg: #0a0a0a;
     --card-bg: #141414;
     --text-main: #ffffff;
@@ -24,57 +26,156 @@ body {
 }
 
 /* =========================================
-   SAFE PAGE STYLES (Quiz/Survey)
+   SAFE PAGE STYLES (Rutina Masculina Quiz)
    ========================================= */
 .safe-content {
-    background: #fdfdfd; 
-    color: #333;
+    background: #f6f7f9;
+    color: #222;
     min-height: 100vh;
-    display: flex; /* Visible by default (JS will hide if target) */
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 24px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.safe-container {
-    background: white;
-    max-width: 600px;
-    width: 90%;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.safe-h1 {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    color: #2c3e50;
-}
-
-.safe-btn {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    margin: 0.5rem 0;
-    border: 1px solid #ddd;
+.wrap {
+    max-width: 720px;
+    width: 95%;
+    margin: 0 auto 24px auto;
     background: #fff;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: background 0.2s;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+    overflow: hidden;
+    text-align: left;
 }
 
-.safe-btn:hover {
-    background: #f0f2f5;
+.safe-header {
+    padding: 20px 20px 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.safe-header h1 {
+    font-size: 22px;
+    margin-bottom: 6px;
+    color: #000;
+}
+
+.safe-header p {
+    font-size: 14px;
+    color: #555;
+    font-weight: normal;
+}
+
+/* Steps */
+.step {
+    display: none;
+    padding: 22px;
+}
+
+.step.active {
+    display: block;
+}
+
+.q-text {
+    font-size: 18px;
+    margin-bottom: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+.opts {
+    display: grid;
+    gap: 10px;
+}
+
+.opt {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px 14px;
+    cursor: pointer;
+    font-weight: normal;
+    background: #fff;
+    color: #333;
+    transition: background 0.1s;
+}
+
+.opt:hover {
+    background: #f2f4f7;
+}
+
+/* Nav & Buttons */
+.safe-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-top: 1px solid #eee;
+}
+
+.progress-text {
+    font-size: 13px;
+    color: #666;
+}
+
+.safe-nav button {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-next {
+    background: #0a66ff;
+    color: #fff;
+    margin-left: 8px;
+}
+
+.btn-prev {
+    background: #e9ecf1;
+    color: #333;
+}
+
+/* Result CTA */
+.btn-safe-cta {
+    background: #0a66ff;
+    color: #fff;
+    width: 100%;
+    font-size: 16px;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-safe-cta:hover {
+    background: #0056e0;
+}
+
+.safe-footer {
+    padding: 14px 20px;
+    font-size: 12px;
+    color: #666;
+    background: #fafafa;
+    border-top: 1px solid #eee;
+    text-align: center;
+    width: 100%;
+}
+
+.disclaimer {
+    margin-top: 10px;
 }
 
 /* =========================================
    VSL PAGE STYLES (Premium Dark Mode)
    ========================================= */
 .vsl-content {
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
     opacity: 0;
     transition: opacity 0.5s ease-in;
 }
@@ -95,6 +196,7 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
 }
+
 .date-highlight {
     color: var(--gold);
     font-weight: 700;
@@ -118,7 +220,9 @@ body {
 }
 
 @media(min-width: 768px) {
-    .headline { font-size: 2.5rem; }
+    .headline {
+        font-size: 2.5rem;
+    }
 }
 
 .headline-accent {
@@ -135,7 +239,8 @@ body {
     width: 100%;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(211, 47, 47, 0.3); /* Red Glow */
+    box-shadow: 0 0 20px rgba(211, 47, 47, 0.3);
+    /* Red Glow */
     border: 1px solid #333;
     margin-bottom: 1rem;
     background: #000;
@@ -168,6 +273,7 @@ body {
     filter: grayscale(100%);
     margin: 2rem 0;
 }
+
 .logos-strip img {
     height: 24px;
 }
@@ -221,12 +327,27 @@ footer {
 
 /* Animations */
 @keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.4; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
