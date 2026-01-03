@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     // TEMPO EM SEGUNDOS PARA APARECER O BOTÃO
-    // 30 minutos = 30 * 60 = 1800 segundos
-    const SECONDS_TO_DISPLAY = 1;
+    // TESTE: 3 segundos
+    const SECONDS_TO_DISPLAY = 3;
 
     const CLASS_TO_DISPLAY = ".delayed-content";
-    const STORAGE_KEY = "already_watched_30min";
+    const STORAGE_KEY = "already_watched_acero_pitch"; // Updated key to be specific
 
     const hiddenElements = document.querySelectorAll(CLASS_TO_DISPLAY);
 
@@ -19,11 +19,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 50);
         });
         localStorage.setItem(STORAGE_KEY, "true");
+        window.pitchRevealed = true; // Signal for Back Redirect
     }
 
     // Verifica se já assistiu antes
     if (localStorage.getItem(STORAGE_KEY)) {
         showElements();
+        // Don't return, keep checking to set the global flag if needed, 
+        // though showElements sets it.
+        // Actually return is fine as showElements() sets the flag.
         return;
     }
 

@@ -213,8 +213,8 @@
                 </script>
 
                 <!-- CTA Button (Centerpag Checkout) -->
-                <!-- Hidden initially for VSL Delay -->
-                <div class="cta-box" style="display: none;">
+                <!-- Hidden initially, managed by js/delay.js -->
+                <div class="cta-box delayed-content" style="display: none;">
                     <a href="https://checkout.centerpag.com/pay/PPU38CQ5ENJ?" class="cta-btn pulse">
                         QUIERO ACCEDER AHORA
                     </a>
@@ -225,39 +225,27 @@
                 </div>
 
                 <!-- Logos -->
-                <div class="logos-strip" style="display: none;">
+                <div class="logos-strip delayed-content" style="display: none;">
                     <img src="images/logos.jpg" alt="Certificados" style="height: auto; width: 100%; max-width: 400px;">
                 </div>
 
-                <script>
-                    // VSL CTA DELAY & BACK REDIRECT
-                    // APENAS PARA TESTE: 3 segundos
-                    const DELAY_MS = 3000;
-                    const BACK_REDIRECT_URL = "promocion/index.html";
+                <!-- External Delay Script (Syncs with VSL Time) -->
+                <script src="js/delay.js"></script>
 
-                    // Logic Flags
-                    let pitchRevealed = false;
+                <script>
+                    // BACK REDIRECT LOGIC
+                    const BACK_REDIRECT_URL = "promocion/index.html";
                     let redirectExecuted = false;
 
-                    // 1. Reveal Elements Logic
-                    setTimeout(() => {
-                        pitchRevealed = true; // "Ativo"
-
-                        const cta = document.querySelector('.cta-box');
-                        const logos = document.querySelector('.logos-strip');
-
-                        if (cta) cta.style.display = 'block';
-                        if (logos) logos.style.display = 'flex';
-
-                    }, DELAY_MS);
-
-
-                    // 2. Back Redirect Logic (Only active AFTER delay/pitch)
-                    // Push state immediately to capture the button press event later
+                    // Push state immediately
                     history.pushState({ page: 1 }, "", location.href);
 
                     function executeBackRedirect() {
-                        if (pitchRevealed && !redirectExecuted) {
+                        // Check Global Flag from delay.js OR LocalStorage
+                        // Storage Key must match delay.js: "already_watched_acero_pitch"
+                        const pitchWasRevealed = window.pitchRevealed || localStorage.getItem("already_watched_acero_pitch");
+
+                        if (pitchWasRevealed && !redirectExecuted) {
                             redirectExecuted = true;
                             window.location.href = BACK_REDIRECT_URL;
                         }
@@ -266,7 +254,6 @@
                     // Listeners
                     window.addEventListener("popstate", executeBackRedirect);
 
-                    // Fallback for page hiding/visibility change mostly for mobile
                     document.addEventListener("visibilitychange", function () {
                         if (document.visibilityState === 'hidden') {
                             executeBackRedirect();
