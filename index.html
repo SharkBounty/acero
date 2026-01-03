@@ -45,6 +45,16 @@
             const vslSection = document.querySelector('.vsl-content');
             if (vslSection) {
                 vslSection.style.display = 'block';
+
+                // LAZY LOAD VIDEO SCRIPT (To prevent playback during Quiz)
+                if (!document.getElementById("vturb-script")) {
+                    var s = document.createElement("script");
+                    s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js";
+                    s.async = true;
+                    s.id = "vturb-script";
+                    document.head.appendChild(s);
+                }
+
                 // Fade in and Update
                 setTimeout(() => {
                     vslSection.style.opacity = '1';
@@ -196,8 +206,7 @@
                 <div class="video-box">
                     <vturb-smartplayer id="vid-69574056bfcaaae23ccb95b3"
                         style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
-                    <script
-                        type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js", s.async = !0, document.head.appendChild(s); </script>
+                    <!-- Script injected via startVSL() for Lazy Load -->
                 </div>
 
                 <div class="viewers-count">
