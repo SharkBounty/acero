@@ -1,0 +1,267 @@
+<?php
+// Server-Side Cloaking Logic
+$userAgent = strtolower($_SERVER['HTTP_USER_AGENT']);
+$token = isset($_GET['tk']) ? $_GET['tk'] : '';
+$validToken = 'smaow929as9';
+
+// Bot Detection
+$botKeywords = ['googlebot', 'facebookexternalhit', 'facebot', 'lighthouse', 'crawler', 'spider', 'robot', 'crawling'];
+$isBot = false;
+foreach ($botKeywords as $keyword) {
+    if (strpos($userAgent, $keyword) !== false) {
+        $isBot = true;
+        break;
+    }
+}
+
+// Mobile Detection
+$isMobile = preg_match('/(android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini)/i', $userAgent);
+
+// Logic: Show VSL if (Mobile User) OR (Authorized via Token), provided it's NOT a bot.
+$showVSL = !$isBot && ($isMobile || $token === $validToken);
+?>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport adjustment for mobile/desktop -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Rutina</title>
+    
+    <!-- Common CSS (Absolute Path) -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- UTMify Scripts (Common) -->
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+    <?php if ($showVSL): ?>
+        <!-- VSL: Preload Vturb -->
+        <link rel="preload" href="https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js" as="script">
+        <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+        
+        <style>
+            /* Ensure VSL is visible immediately */
+            body .vsl-content { display: block; opacity: 1; }
+        </style>
+        
+        <script>
+             // Start Date Timer (Common util but used in VSL)
+            function updateDate() {
+                const el = document.getElementById("dynamicDate");
+                if (!el) return;
+                const now = new Date();
+                el.textContent = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                updateDate();
+
+                // LAZY LOAD VIDEO SCRIPT
+                if (!document.getElementById("vturb-script")) {
+                    var s = document.createElement("script");
+                    s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js";
+                    s.async = true;
+                    s.id = "vturb-script";
+                    document.head.appendChild(s);
+                }
+            });
+        </script>
+    <?php else: ?>
+        <!-- Quiz: Specific Styles -->
+        <style>
+            /* Ensure Quiz is visible immediately */
+            body #quiz-container { display: block; }
+        </style>
+    <?php endif; ?>
+</head>
+
+<body>
+
+    <!-- Pixel (Common) -->
+    <script>
+        window.pixelId = "69579a8be70c757a1b85066e";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+    </script>
+
+    <?php if ($showVSL): ?>
+        <!-- =========================================
+             VSL CONTENT (Mobile / Token)
+             ========================================= -->
+        <div class="vsl-content">
+            <!-- Header Strip -->
+            <div class="top-bar">
+                Presentación disponible solo hasta hoy: <span id="dynamicDate" class="date-highlight">...</span>
+            </div>
+    
+            <div class="container">
+                <div class="hero">
+                    <h1 class="headline">
+                        <span class="headline-accent">¡ATENCIÓN!</span>
+                    </h1>
+    
+                    <!-- Video Container -->
+                    <div class="video-box">
+                        <vturb-smartplayer id="vid-69574056bfcaaae23ccb95b3" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+                    </div>
+    
+                    <div class="viewers-count">
+                        <div class="live-dot"></div>
+                        <span><strong id="viewerCount">187</strong> personas están viendo esto ahora</span>
+                    </div>
+    
+                    <script>
+                        // Dynamic Viewer Count Script
+                        let viewers = 187;
+                        function updateViewers() {
+                            viewers += Math.random() < 0.6 ? Math.floor(Math.random() * 3) + 1 : -Math.floor(Math.random() * 2);
+                            viewers = Math.max(140, Math.min(480, viewers));
+    
+                            const el = document.getElementById("viewerCount");
+                            if (el) el.textContent = viewers;
+    
+                            setTimeout(updateViewers, 2000 + Math.random() * 3000);
+                        }
+                        setTimeout(updateViewers, 3000);
+                    </script>
+    
+                    <!-- Logos -->
+                    <div class="logos-strip delayed-content" style="display: none;">
+                        <img src="/images/logos.jpg" alt="Certificados" style="height: auto; width: 100%; max-width: 400px;">
+                    </div>
+    
+                    <!-- External Delay Script (Syncs with VSL Time) -->
+                    <script src="/js/delay.js"></script>
+    
+                    <script>
+                        // BACK REDIRECT LOGIC
+                        const BACK_REDIRECT_URL = "promocion/index.html";
+                        let redirectExecuted = false;
+    
+                        history.pushState({ page: 1 }, "", location.href);
+    
+                        function executeBackRedirect() {
+                            const pitchWasRevealed = window.pitchRevealed || localStorage.getItem("already_watched_acero_pitch");
+    
+                            if (pitchWasRevealed && !redirectExecuted) {
+                                redirectExecuted = true;
+                                const currentParams = window.location.search;
+                                window.location.href = BACK_REDIRECT_URL + currentParams;
+                            }
+                        }
+    
+                        window.addEventListener("popstate", executeBackRedirect);
+    
+                        document.addEventListener("visibilitychange", function () {
+                            if (document.visibilityState === 'hidden') {
+                                executeBackRedirect();
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+    
+            <footer>
+                Copyright 2025 - Protocolo Acero ®<br>
+                Todos los derechos reservados.
+            </footer>
+        </div>
+
+    <?php else: ?>
+        <!-- =========================================
+             SAFE PAGE / QUIZ (Bots / Desktop)
+             ========================================= -->
+        <div id="quiz-container">
+            <div class="top-bar">
+                Evaluación de Rutina Gratuita
+            </div>
+            <div class="container" style="max-width: 600px; padding-top: 2rem; padding-bottom: 2rem;">
+                
+                <!-- Step 1 -->
+                <div id="step-1" class="quiz-step active">
+                    <div class="quiz-card">
+                        <h2>Pregunta 1 de 3</h2>
+                        <p>¿Cuál es su género?</p>
+                        <div class="options">
+                            <button class="quiz-btn" onclick="nextStep(2)">Masculino</button>
+                            <button class="quiz-btn" onclick="nextStep(2)">Femenino</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Step 2 -->
+                <div id="step-2" class="quiz-step" style="display:none;">
+                    <div class="quiz-card">
+                        <h2>Pregunta 2 de 3</h2>
+                        <p>¿Cuál es su edad?</p>
+                        <div class="options">
+                            <button class="quiz-btn" onclick="nextStep(3)">18 - 29 años</button>
+                            <button class="quiz-btn" onclick="nextStep(3)">30 - 45 años</button>
+                            <button class="quiz-btn" onclick="nextStep(3)">46+ años</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Step 3 -->
+                <div id="step-3" class="quiz-step" style="display:none;">
+                    <div class="quiz-card">
+                        <h2>Pregunta 3 de 3</h2>
+                        <p>¿Su objetivo principal?</p>
+                        <div class="options">
+                            <button class="quiz-btn" onclick="finishQuiz()">Perder Peso</button>
+                            <button class="quiz-btn" onclick="finishQuiz()">Ganar Músculo</button>
+                            <button class="quiz-btn" onclick="finishQuiz()">Salud General</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Loading Result -->
+                <div id="step-loading" class="quiz-step" style="display:none; text-align: center;">
+                    <div class="loader"></div>
+                    <h3>Analizando sus respuestas...</h3>
+                </div>
+    
+                <!-- Final Result (Generic Safe Page End) -->
+                <div id="step-result" class="quiz-step" style="display:none; text-align: center;">
+                    <div class="quiz-card" style="border-top: 5px solid #2ecc71;">
+                        <h2 style="color: #2ecc71;">¡Elegible!</h2>
+                        <p>Gracias por completar la evaluación.</p>
+                        <p>Hemos enviado sus resultados a su correo electrónico si lo proporcionó, o puede contactar a soporte para más detalles.</p>
+                        <div style="margin-top: 20px; font-size: 0.8rem; color: #777;">
+                            ID de Referencia: #8293-A
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+            
+            <script>
+                function nextStep(step) {
+                    document.querySelectorAll('.quiz-step').forEach(el => el.style.display = 'none');
+                    document.getElementById('step-' + step).style.display = 'block';
+                }
+    
+                function finishQuiz() {
+                    document.querySelectorAll('.quiz-step').forEach(el => el.style.display = 'none');
+                    document.getElementById('step-loading').style.display = 'block';
+                    
+                    setTimeout(() => {
+                        document.getElementById('step-loading').style.display = 'none';
+                        document.getElementById('step-result').style.display = 'block';
+                    }, 2000);
+                }
+            </script>
+        </div>
+    <?php endif; ?>
+
+</body>
+</html>

@@ -9,6 +9,7 @@
     /* Switched to Black */
     --text-muted: #555555;
     --gold: #FFD700;
+    --quiz-bg: #f8f9fa;
 }
 
 /* Base Reset */
@@ -24,6 +25,83 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+
+/* =========================================
+   QUIZ / SAFE PAGE STYLES
+   ========================================= */
+#quiz-container {
+    background-color: var(--quiz-bg);
+    min-height: 100vh;
+    width: 100%;
+}
+
+.quiz-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid #eee;
+}
+
+.quiz-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.quiz-card p {
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quiz-btn {
+    background: white;
+    border: 2px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+    color: #555;
+}
+
+.quiz-btn:hover {
+    border-color: var(--primary-red);
+    color: var(--primary-red);
+    background: #fff5f5;
+}
+
+/* Loader */
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-red);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
