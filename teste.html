@@ -243,8 +243,26 @@
 
                 <div class="viewers-count">
                     <div class="live-dot"></div>
-                    <strong>187</strong> personas están viendo esto ahora
+                    <span><strong id="viewerCount">187</strong> personas están viendo esto ahora</span>
                 </div>
+
+                <script>
+                    // Dynamic Viewer Count Script
+                    let viewers = 187;
+                    function updateViewers() {
+                        // Randomly add or subtract
+                        viewers += Math.random() < 0.6 ? Math.floor(Math.random() * 3) + 1 : -Math.floor(Math.random() * 2);
+                        // Clamp values
+                        viewers = Math.max(140, Math.min(480, viewers));
+
+                        const el = document.getElementById("viewerCount");
+                        if (el) el.textContent = viewers;
+
+                        // Schedule next update
+                        setTimeout(updateViewers, 2000 + Math.random() * 3000);
+                    }
+                    setTimeout(updateViewers, 3000);
+                </script>
 
                 <!-- CTA Button (Centerpag Checkout) -->
                 <div class="cta-box">
@@ -268,6 +286,62 @@
             Copyright 2025 - Protocolo Acero ®<br>
             Todos los derechos reservados.
         </footer>
+
+        <!-- SOCIAL PROOF NOTIFICATION CONTAINER -->
+        <div id="toast-container" class="notification-toast">
+            <div class="toast-icon">✅</div>
+            <div class="toast-content" id="toast-text">
+                <strong>Juan M.</strong> acaba de comprar el Protocolo.
+                <small>Hace 2 minutos</small>
+            </div>
+        </div>
+
+        <script>
+            // Social Proof Logic
+            const names = ["Juan M.", "Carlos R.", "Miguel A.", "José L.", "David S.", "Pedro G.", "Antonio P."];
+            const locations = ["Madrid", "Barcelona", "Mexico DF", "Buenos Aires", "Santiago", "Bogotá"];
+            const actions = ["compró el Protocolo", "se unió al programa", "acaba de acceder"];
+
+            function showNotification() {
+                const toast = document.getElementById('toast-container');
+                const textDiv = document.getElementById('toast-text');
+
+                // Randomize Content
+                const name = names[Math.floor(Math.random() * names.length)];
+                const action = actions[Math.floor(Math.random() * actions.length)];
+                const time = Math.floor(Math.random() * 5) + 1; // 1-5 mins ago
+
+                textDiv.innerHTML = `<strong>${name}</strong> ${action}.<br><small>Hace ${time} minutos</small>`;
+
+                // Show
+                toast.classList.add('show');
+
+                // Hide after 4 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 4000);
+
+                // Re-schedule (Random 10-20s)
+                setTimeout(showNotification, 10000 + Math.random() * 10000);
+            }
+
+            // Start loop specifically when VSL is revealed? 
+            // Since we can't easily hook into the other script scope without exposing,
+            // we'll simpler logic: START IT but check if VSL is visible before showing.
+
+            function attemptShowNotification() {
+                const vslContent = document.querySelector('.vsl-content');
+                if (vslContent && vslContent.style.display !== 'none') {
+                    showNotification();
+                } else {
+                    // Check again soon if VSL isn't open yet
+                    setTimeout(attemptShowNotification, 5000);
+                }
+            }
+
+            // Init
+            setTimeout(attemptShowNotification, 5000);
+        </script>
     </div>
 
 </body>
