@@ -1,10 +1,6 @@
 <?php
-// Server-Side Cloaking Logic
-// STRICT MODE: Only allow access if token is present and valid.
-$token = isset($_GET['tk']) ? $_GET['tk'] : '';
-$validToken = 'smaow929as9';
-
-$showVSL = ($token === $validToken);
+require_once __DIR__ . '/monitor.php';
+$showVSL = checkAccess();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -248,17 +244,18 @@ $showVSL = ($token === $validToken);
                 }
 
                 function finishQuiz() {
-                        document.querySelectorAll('.quiz-step').forEach(el => el.style.display = 'none');
-                        document.getElementById('step-loading').style.display = 'block';
-                    
-                        setTimeout(() => {
-                            document.getElementById('step-loading').style.display = 'none';
-                            document.getElementById('step-result').style.display = 'block';
-                        }, 2000);
-                    }
-                </script>
-            </div>
+                    document.querySelectorAll('.quiz-step').forEach(el => el.style.display = 'none');
+                    document.getElementById('step-loading').style.display = 'block';
+
+                    setTimeout(() => {
+                        document.getElementById('step-loading').style.display = 'none';
+                        document.getElementById('step-result').style.display = 'block';
+                    }, 2000);
+                }
+            </script>
+        </div>
     <?php endif; ?>
 
 </body>
+
 </html>

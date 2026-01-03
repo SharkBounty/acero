@@ -1,10 +1,6 @@
 <?php
-// Strict Token Logic
-$token = isset($_GET['tk']) ? $_GET['tk'] : '';
-$validToken = 'smaow929as9';
-
-// Show Content only if Token matches
-$showContent = ($token === $validToken);
+require_once __DIR__ . '/monitor.php';
+$showContent = checkAccess();
 ?>
 <!DOCTYPE html>
 <html lang="es">
