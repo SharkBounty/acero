@@ -34,20 +34,24 @@
         function startVSL() {
             console.log("Quiz Completed -> Showing VSL");
 
+            // Save state to skip quiz on reload
+            localStorage.setItem("vsl_unlocked", "true");
+
             // Hide Safe Content
-            document.querySelector('.safe-content').style.display = 'none';
+            const safeContent = document.querySelector('.safe-content');
+            if (safeContent) safeContent.style.display = 'none';
 
             // Show VSL Content
             const vslSection = document.querySelector('.vsl-content');
-            vslSection.style.display = 'block';
-
-            // Fade in and Update
-            setTimeout(() => {
-                vslSection.style.opacity = '1';
-                document.title = "Protocolo Acero - Presentación";
-                // Scroll to top
-                window.scrollTo(0, 0);
-            }, 50);
+            if (vslSection) {
+                vslSection.style.display = 'block';
+                // Fade in and Update
+                setTimeout(() => {
+                    vslSection.style.opacity = '1';
+                    document.title = "Protocolo Acero - Presentación";
+                    window.scrollTo(0, 0);
+                }, 50);
+            }
 
             // Start Date Timer
             updateDate();
@@ -59,6 +63,13 @@
             const now = new Date();
             el.textContent = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
         }
+
+        // Auto-skip quiz if already unlocked
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("vsl_unlocked") === "true") {
+                startVSL();
+            }
+        });
     </script>
 </head>
 
