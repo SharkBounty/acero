@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // TEMPO EM SEGUNDOS PARA APARECER O BOTÃO
-    // 25 minutos e 27 segundos = 1587 segundos
+    // 25 minutos e 20 segundos = 1520 segundos
     const SECONDS_TO_DISPLAY = 1520;
 
     const CLASS_TO_DISPLAY = ".delayed-content";
