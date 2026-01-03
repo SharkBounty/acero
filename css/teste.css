@@ -240,10 +240,12 @@ body {
 .video-box {
     position: relative;
     width: 100%;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(211, 47, 47, 0.3);
-    border: 1px solid #333;
+    /* Sophisticated Transparent Glow */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Very subtle border */
     margin-bottom: 1rem;
     background: #000;
 }
