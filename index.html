@@ -1,195 +1,241 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocolo Acero - Oficial</title>
+    <title>Evaluación de Rutina</title>
     <link rel="stylesheet" href="css/style.css">
 
-
-
     <!--utmify utms-->
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
+        data-utmify-prevent-subids async defer></script>
 
-    <script
-        src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-        data-utmify-prevent-xcod-sck
-        data-utmify-prevent-subids
-        async
-        defer
-        ></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
+    <!-- Preload Vturb -->
+    <link rel="preload"
+        href="https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js"
+        as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
 
     <style>
-        /* CSS RESET & RESPONSIVIDADE */
-        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #fff; }
-        .container { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 15px; box-sizing: border-box; }
-        
-        .headline-box { padding: 40px 10px 20px 10px; text-align: center; }
-        
-        .pre-headline { 
-            color: #ff0000; 
-            font-size: 0.9rem; 
-            font-weight: bold; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .main-headline { 
-            color: #1a1a1a; 
-            font-size: 1.8rem; /* Mobile */
-            line-height: 1.2; 
-            font-weight: 800; 
-            margin: 0 auto 15px auto;
-            max-width: 850px;
-        }
-
-        .sub-headline { 
-            font-size: 1rem; 
-            color: #555; 
-            font-weight: 400;
-            line-height: 1.4;
-        }
-
-        .highlight { color: #ff0000; }
-
-        .video-wrapper { 
-            width: 100%; 
-            max-width: 760px; 
-            margin: 20px auto; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            background: #000;
-        }
-
-        .cta-button {
-            display: block;
-            background-color: #28a745;
-            color: #fff;
-            text-decoration: none;
-            padding: 20px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            border-radius: 8px;
-            text-align: center;
-            margin: 30px auto 10px auto;
-            max-width: 400px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        @media (min-width: 768px) {
-            .main-headline { font-size: 2.8rem; }
-            .pre-headline { font-size: 1.1rem; }
-            .sub-headline { font-size: 1.2rem; }
-            .cta-button { font-size: 1.6rem; }
+        /* Initial state */
+        body {
+            visibility: visible;
         }
     </style>
-    <!--utmify pixel-->
 
     <script>
-        window.pixelId = "69579a8be70c757a1b85066e";
-        var a = document.createElement("script");
-        a.setAttribute("async", "");
-        a.setAttribute("defer", "");
-        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-        document.head.appendChild(a);
+        // Transition Logic: Quiz -> VSL
+        function startVSL() {
+            console.log("Quiz Completed -> Showing VSL");
+
+            // Hide Safe Content
+            document.querySelector('.safe-content').style.display = 'none';
+
+            // Show VSL Content
+            const vslSection = document.querySelector('.vsl-content');
+            vslSection.style.display = 'block';
+
+            // Fade in and Update
+            setTimeout(() => {
+                vslSection.style.opacity = '1';
+                document.title = "Protocolo Acero - Presentación";
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }, 50);
+
+            // Start Date Timer
+            updateDate();
+        }
+
+        function updateDate() {
+            const el = document.getElementById("dynamicDate");
+            if (!el) return;
+            const now = new Date();
+            el.textContent = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
+        }
     </script>
-
-    <script>
-  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
-    const link = 'https://meubackredirect.com.br';
-
-    function setBackRedirect(url) {
-        let urlBackRedirect = url;
-        urlBackRedirect = urlBackRedirect =
-        urlBackRedirect.trim() +
-        (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-        document.location.search.replace('?', '').toString();
-
-        history.pushState({}, '', location.href);
-        history.pushState({}, '', location.href);
-        history.pushState({}, '', location.href);
-
-        window.addEventListener('popstate', () => {
-        console.log('onpopstate', urlBackRedirect);
-        setTimeout(() => {
-            location.href = urlBackRedirect;
-        }, 1);
-        });
-    }
-
-    setBackRedirect(link);
-    </script>
-
-    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-    <link rel="preload" href="https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js" as="script">
-    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-    <link rel="preload" href="https://cdn.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/69573ff02abd0da980e11218/main.m3u8" as="fetch">
-    <link rel="dns-prefetch" href="https://cdn.converteai.net">
-    <link rel="dns-prefetch" href="https://scripts.converteai.net">
-    <link rel="dns-prefetch" href="https://images.converteai.net">
-    <link rel="dns-prefetch" href="https://api.vturb.com.br">
 </head>
 
 <body>
 
-    <section class="hero-section">
-        <div class="container">
-            <div class="headline-box">
-                <h1 class="main-headline" style="font-size: 2.1rem; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; text-align: center;">
-                    ATENCION!
-                </h1>
+    <!-- CONTAINER 1: SAFE PAGE (THE QUIZ) -->
+    <div class="safe-content">
+        <div class="wrap">
+            <header class="safe-header">
+                <h1>Rutina Masculina – Cuestionario</h1>
+                <p>Etapas rápidas para entender hábitos del día a día.</p>
+            </header>
+
+            <!-- ETAPAS 1 a 3 (Reduced) -->
+            <div class="step active">
+                <div class="q-text">1) ¿Cuál es tu rango de edad?</div>
+                <div class="opts">
+                    <div class="opt">18–29</div>
+                    <div class="opt">30–39</div>
+                    <div class="opt">40–49</div>
+                    <div class="opt">50+</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="q-text">2) ¿Cómo evalúas tu nivel de energía diaria?</div>
+                <div class="opts">
+                    <div class="opt">Alto</div>
+                    <div class="opt">Medio</div>
+                    <div class="opt">Bajo</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="q-text">3) ¿Realizas actividad física semanalmente?</div>
+                <div class="opts">
+                    <div class="opt">Sí</div>
+                    <div class="opt">A veces</div>
+                    <div class="opt">No</div>
+                </div>
             </div>
 
-            <div class="video-wrapper">
-                <vturb-smartplayer id="vid-69574056bfcaaae23ccb95b3" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+            <!-- RESULTADO -->
+            <div class="step" id="result-step">
+                <div class="q-text">Resultado</div>
+                <p>Según tus respuestas, muchos hombres comienzan con ajustes simples de hábitos y rutina.
+                    Un material informativo reúne un <strong>truco tradicional con bicarbonato</strong>, presentado de
+                    forma cultural y educativa, enfocado en el bienestar general.</p>
+                <p style="margin:14px 0">¿Deseas conocer la guía informativa?</p>
+
+                <!-- TRANSITION BUTTON: Goes to VSL -->
+                <button class="btn-safe-cta" onclick="startVSL()">VER LA GUÍA</button>
             </div>
 
-            <div class="logos-container" style="text-align: center; margin: 20px auto 40px auto; padding: 0 10px;">
-                <img src="images/logos.jpg" alt="Certificados" style="max-width: 100%; width: 450px; height: auto; opacity: 0.7; display: inline-block;">
-            </div>
-
-            <div class="delayed-content" style="text-align: center;">
-                <a href="https://pay.hotmart.com/V103374224C" class="cta-button">
-                    ¡QUIERO ACCEDER AHORA!
-                    <span style="display: block; font-size: 0.8rem; font-weight: 500; opacity: 0.9; margin-top: 5px;">Oferta por tiempo limitado</span>
-                </a>
-
-                <div class="guarantee-badge" style="margin-top: 15px; font-size: 0.9rem; color: #666; padding-bottom: 50px;">
-                    <span>🔒 Pago Seguro</span> | <span>✅ Garantía de 7 Días</span>
+            <div class="safe-nav">
+                <div class="progress-text" id="progress">Etapa 1 de 3</div>
+                <div>
+                    <button class="btn-prev" onclick="prevStep()">Volver</button>
+                    <button class="btn-next" onclick="nextStep()">Continuar</button>
                 </div>
             </div>
         </div>
-    </section>
 
-    <footer style="padding: 40px 0; text-align: center; border-top: 1px solid #eee;">
-        <div class="container">
-            <div class="footer-links">
-                <a href="#" style="color: #999; text-decoration: none; margin: 0 10px;">Términos</a>
-                <a href="#" style="color: #999; text-decoration: none; margin: 0 10px;">Privacidad</a>
+        <footer class="safe-footer">
+            <div>Contenido informativo y educativo.</div>
+            <div class="disclaimer">No sustituye la orientación profesional. No realiza promesas de cura ni tratamiento.
             </div>
-            <p style="margin-top: 20px; opacity: 0.5; font-size: 0.8rem;">© 2024 Protocolo Acero. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
-    <script src="js/notifications.js"></script>
-    <script src="js/delay.js"></script>
-
+    <!-- QUIZ LOGIC -->
     <script>
-        (function () {
-            const BACK_REDIRECT_URL = "https://"+window.location.href+"/promocion";
-            const DELAY_TIME = 1800 * 1000;
-            let ativo = false;
-            let done = false;
-            setTimeout(() => ativo = true, DELAY_TIME);
-            history.pushState({ page: 1 }, "", location.href);
-            window.addEventListener("popstate", function () {
-                if (ativo && !done) {
-                    done = true;
-                    location.href = BACK_REDIRECT_URL;
-                }
-            });
-        })();
+        const steps = document.querySelectorAll('.step');
+        const progress = document.getElementById('progress');
+        const nav = document.querySelector('.safe-nav');
+        let currentStep = 0;
+
+        function showStep() {
+            steps.forEach((s, idx) => s.classList.toggle('active', idx === currentStep));
+
+            if (currentStep < 3) {
+                progress.textContent = `Etapa ${currentStep + 1} de 3`;
+                nav.style.display = 'flex';
+            } else {
+                progress.textContent = 'Resultado';
+                nav.style.display = 'none';
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                showStep();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                showStep();
+            }
+        }
+
+        document.querySelectorAll('.opt').forEach(o => {
+            o.addEventListener('click', nextStep);
+        });
+        showStep();
     </script>
+
+
+    <!-- CONTAINER 2: VSL PAGE (Hidden by Default, Revealed by startVSL) -->
+    <div class="vsl-content">
+
+        <!-- Header Strip -->
+        <div class="top-bar">
+            Presentación disponible solo hasta hoy: <span id="dynamicDate" class="date-highlight">...</span>
+        </div>
+
+        <div class="container">
+            <div class="hero">
+                <h1 class="headline">
+                    <span class="headline-accent">¡ATENCIÓN!</span>
+                </h1>
+
+                <!-- Video Container -->
+                <div class="video-box">
+                    <vturb-smartplayer id="vid-69574056bfcaaae23ccb95b3"
+                        style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+                    <script
+                        type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js", s.async = !0, document.head.appendChild(s); </script>
+                </div>
+
+                <div class="viewers-count">
+                    <div class="live-dot"></div>
+                    <span><strong id="viewerCount">187</strong> personas están viendo esto ahora</span>
+                </div>
+
+                <script>
+                    // Dynamic Viewer Count Script
+                    let viewers = 187;
+                    function updateViewers() {
+                        // Randomly add or subtract
+                        viewers += Math.random() < 0.6 ? Math.floor(Math.random() * 3) + 1 : -Math.floor(Math.random() * 2);
+                        // Clamp values
+                        viewers = Math.max(140, Math.min(480, viewers));
+
+                        const el = document.getElementById("viewerCount");
+                        if (el) el.textContent = viewers;
+
+                        // Schedule next update
+                        setTimeout(updateViewers, 2000 + Math.random() * 3000);
+                    }
+                    setTimeout(updateViewers, 3000);
+                </script>
+
+                <!-- CTA Button (Centerpag Checkout) -->
+                <div class="cta-box">
+                    <a href="https://checkout.centerpag.com/pay/PPU38CQ5ENJ?" class="cta-btn pulse">
+                        QUIERO ACCEDER AHORA
+                    </a>
+                    <div class="guarantee">
+                        <span>🔒 Pago Seguro</span>
+                        <span>✅ Garantía Total</span>
+                    </div>
+                </div>
+
+                <!-- Logos -->
+                <div class="logos-strip">
+                    <img src="images/logos.jpg" alt="Certificados" style="height: auto; width: 100%; max-width: 400px;">
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            Copyright 2025 - Protocolo Acero ®<br>
+            Todos los derechos reservados.
+        </footer>
+    </div>
+
 </body>
+
 </html>
