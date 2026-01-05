@@ -3,7 +3,7 @@ require_once __DIR__ . '/monitor.php';
 $showVSL = checkAccess();
 
 if (!$showVSL) {
-    include 'safe_page.php';
+    include 'recetas.php';
     exit;
 }
 ?>
