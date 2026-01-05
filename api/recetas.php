@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5 Recetas Caseras con Bicarbonato de Sodio</title>
+    <title>La Guía Maestra del Bicarbonato</title>
     <meta name="description"
-        content="Descubre los usos más sorprendentes del bicarbonato de sodio para el hogar y el cuidado personal.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        content="Aprende más de 50 usos increíbles del bicarbonato de sodio para tu salud y hogar.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50;
-            --accent: #3498db;
-            --bg: #fdfdfd;
-            --text: #444;
-            --card-bg: #fff;
+            --primary: #27ae60;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
         }
 
         * {
@@ -24,244 +26,249 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
             line-height: 1.6;
         }
 
-        header {
-            background: #fff;
-            border-bottom: 1px solid #eaeaea;
-            padding: 20px 0;
+        h1,
+        h2,
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.2;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 60px 20px;
             text-align: center;
         }
 
-        header h1 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            max-width: 90%;
-            margin: 0 auto;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .intro {
-            margin-bottom: 40px;
-            text-align: center;
-            font-size: 1.1rem;
-            color: #666;
-        }
-
-        .recipe-card {
-            background: var(--card-bg);
-            border: 1px solid #eee;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            transition: transform 0.2s ease;
-        }
-
-        .recipe-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .recipe-title {
-            font-size: 1.4rem;
-            color: var(--primary);
+        .hero h1 {
+            color: var(--secondary);
+            font-size: 2.2rem;
             margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+
+        .hero-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+            background: #fff;
+            padding: 10px;
+            /* Placeholder styling */
+            min-height: 200px;
             display: flex;
             align-items: center;
-        }
-
-        .recipe-icon {
-            background: var(--accent);
-            color: white;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
             justify-content: center;
-            margin-right: 12px;
             font-weight: bold;
-            font-size: 0.9rem;
+            color: #aaa;
+            border: 2px dashed #ccc;
         }
 
-        .ingredients {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .ingredients h4 {
-            font-size: 0.9rem;
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #888;
-            margin-bottom: 8px;
         }
 
-        .ingredients ul {
-            list-style-position: inside;
-            padding-left: 10px;
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.6);
+            background-color: #219150;
         }
 
-        .instructions h4 {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #888;
-            margin-bottom: 8px;
-            margin-top: 15px;
+        /* PROBLEM / SOLUTION */
+        .section {
+            padding: 50px 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        footer {
-            margin-top: 60px;
-            padding: 40px 20px;
-            background: #f1f1f1;
+        .section h2 {
             text-align: center;
-            font-size: 0.85rem;
-            color: #888;
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        /* OFFER */
+        .offer-box {
+            background: #fff;
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin: 20px 0;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #95a5a6;
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .guarantee {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: #bdc3c7;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.8rem;
+            margin-top: 50px;
         }
 
         footer a {
-            color: #666;
-            text-decoration: none;
+            color: #ecf0f1;
             margin: 0 10px;
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Vida Harencia & Bienestar</h1>
+    <header class="hero">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            <h1>¡Deja de Gastar en Químicos Peligrosos!</h1>
+            <p>Descubre los 50 usos olvidados del Bicarbonato de Sodio que te ahorrarán cientos de dólares al año
+                mientras proteges la salud de tu familia.</p>
+
+            <!-- Hero Image / Product Mockup -->
+            <div class="hero-img">
+                <img src="https://placehold.co/600x350/png?text=Guia+Maestra+Bicarbonato" alt="Guia Digital"
+                    style="max-width:100%; height:auto;">
+            </div>
+
+            <a href="#comprar" class="btn">¡Quiero la Guía Ahora!</a>
+        </div>
     </header>
 
-    <div class="container">
-        <div class="intro">
-            <p>El bicarbonato de sodio no es solo para hornear. Este humilde polvo blanco es una potencia de usos para
-                la limpieza, la salud y el cuidado personal. Descubre nuestras 5 recetas favoritas.</p>
-        </div>
+    <!-- CONTENT -->
+    <section class="section">
+        <h2>¿Sabías que tienes la solución a la mayoría de tus problemas en tu cocina?</h2>
+        <p style="margin-bottom: 20px;">Nos han hecho creer que necesitamos un producto diferente para cada cosa: uno
+            para los vidrios, otro para la cocina, otro para la ropa, cremas caras para la piel...</p>
+        <p><strong>¡Es mentira!</strong></p>
+        <p>Nuestros abuelos lo sabían: con ingredientes simples y naturales se puede hacer casi todo. Y el rey de todos
+            ellos es el Bicarbonato de Sodio.</p>
+    </section>
 
-        <!-- Recipe 1 -->
-        <div class="recipe-card">
-            <h2 class="recipe-title"><span class="recipe-icon">1</span> Limpiador Multiusos Ecológico</h2>
-            <p>Olvídate de los químicos agresivos. Esta mezcla dejará tus superficies brillantes y desinfectadas.</p>
-
-            <div class="ingredients">
-                <h4>Ingredientes</h4>
-                <ul>
-                    <li>1 cucharada de bicarbonato de sodio</li>
-                    <li>1 taza de agua tibia</li>
-                    <li>Jugo de medio limón</li>
-                </ul>
+    <section class="section" style="background-color: #f9f9f9;">
+        <h2>Lo Que Aprenderás en Esta Guía Exclusiva</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <span class="feature-icon">🌿</span>
+                <h3>Salud Natural</h3>
+                <p>Remedios caseros para la acidez, picaduras, blanqueamiento dental seguro y más.</p>
             </div>
-
-            <div class="instructions">
-                <h4>Instrucciones</h4>
-                <p>Mezcla todos los ingredientes en una botella con atomizador. Agita suavemente antes de usar. Ideal
-                    para encimeras de cocina y mesas.</p>
+            <div class="feature">
+                <span class="feature-icon">✨</span>
+                <h3>Limpieza Profunda</h3>
+                <p>Cómo eliminar manchas imposibles, grasa y malos olores sin usar tóxicos.</p>
             </div>
-        </div>
-
-        <!-- Recipe 2 -->
-        <div class="recipe-card">
-            <h2 class="recipe-title"><span class="recipe-icon">2</span> Exfoliante Suave para Manos</h2>
-            <p>Restaura la suavidad de tus manos después de un día de trabajo.</p>
-
-            <div class="ingredients">
-                <h4>Ingredientes</h4>
-                <ul>
-                    <li>3 partes de bicarbonato de sodio</li>
-                    <li>1 parte de agua (o aceite de coco)</li>
-                </ul>
-            </div>
-
-            <div class="instructions">
-                <h4>Instrucciones</h4>
-                <p>Forma una pasta y masajea suavemente sobre tus manos con movimientos circulares. Enjuaga con agua
-                    tibia. Tu piel quedará renovada.</p>
+            <div class="feature">
+                <span class="feature-icon">💰</span>
+                <h3>Ahorro Masivo</h3>
+                <p>Aprende a fabricar tus propios productos por centavos.</p>
             </div>
         </div>
+    </section>
 
-        <!-- Recipe 3 -->
-        <div class="recipe-card">
-            <h2 class="recipe-title"><span class="recipe-icon">3</span> Desodorante de Refrigerador</h2>
-            <p>La forma más sencilla de mantener tus alimentos frescos y sin olores cruzados.</p>
+    <!-- OFFER SECTION -->
+    <section class="section" id="comprar">
+        <div class="offer-box">
+            <h3>Oferta Especial de Lanzamiento</h3>
+            <p>Obtén el manual completo "Los Milagros del Bicarbonato" en formato digital (PDF).</p>
 
-            <div class="ingredients">
-                <h4>Ingredientes</h4>
-                <ul>
-                    <li>1 taza de bicarbonato de sodio</li>
-                    <li>Un recipiente abierto pequeño</li>
-                </ul>
+            <div class="price-tag">
+                <span class="old-price">$29.99</span>
+                $9.90
             </div>
 
-            <div class="instructions">
-                <h4>Instrucciones</h4>
-                <p>Simplemente coloca el bicarbonato en el recipiente y déjalo en el fondo del refrigerador. Cámbialo
-                    cada 30 días para máxima efectividad.</p>
-            </div>
-        </div>
+            <ul style="text-align: left; max-width: 300px; margin: 0 auto 30px; list-style: none;">
+                <li style="margin-bottom: 10px;">✅ Acceso Inmediato (Descarga)</li>
+                <li style="margin-bottom: 10px;">✅ 50+ Recetas Probadas</li>
+                <li style="margin-bottom: 10px;">✅ Garantía de 7 Días</li>
+            </ul>
 
-        <!-- Recipe 4 -->
-        <div class="recipe-card">
-            <h2 class="recipe-title"><span class="recipe-icon">4</span> Blanqueador de Ropa Natural</h2>
-            <p>Potencia tu detergente habitual y recupera el blanco de tus prendas.</p>
+            <a href="https://pay.hotmart.com/V103374224C?off=dafn4nqn" class="btn">DESCARGAR GUÍA COMPLETA</a>
 
-            <div class="ingredients">
-                <h4>Ingredientes</h4>
-                <ul>
-                    <li>1/2 taza de bicarbonato de sodio</li>
-                </ul>
-            </div>
-
-            <div class="instructions">
-                <h4>Instrucciones</h4>
-                <p>Agrega el bicarbonato directamente al tambor de la lavadora junto con tu ropa antes de poner el
-                    detergente. Ayuda a equilibrar el pH del agua.</p>
+            <div class="guarantee">
+                <p>🔒 Pago 100% Seguro y Encriptado</p>
             </div>
         </div>
-
-        <!-- Recipe 5 -->
-        <div class="recipe-card">
-            <h2 class="recipe-title"><span class="recipe-icon">5</span> Alivio para Picaduras de Insectos</h2>
-            <p>Un remedio clásico para calmar la picazón al instante.</p>
-
-            <div class="ingredients">
-                <h4>Ingredientes</h4>
-                <ul>
-                    <li>1 cucharadita de bicarbonato</li>
-                    <li>Unas gotas de agua</li>
-                </ul>
-            </div>
-
-            <div class="instructions">
-                <h4>Instrucciones</h4>
-                <p>Mezcla hasta formar una pasta espesa. Aplica directamente sobre la picadura y deja secar por 10
-                    minutos antes de enjuagar.</p>
-            </div>
-        </div>
-
-    </div>
+    </section>
 
     <footer>
-        <p>© 2025 Vida Harencia & Bienestar. Todos los derechos reservados.</p>
-        <div style="margin-top: 10px;">
-            <a href="#">Política de Privacidad</a> |
-            <a href="#">Términos de Uso</a> |
+        <p>Este producto no sustituye el parecer de un médico profesional. Consulta siempre a un especialista para
+            tratar asuntos de salud.</p>
+        <div style="margin: 20px 0;">
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Uso</a>
             <a href="#">Contacto</a>
         </div>
-        <p style="margin-top: 20px; font-size: 0.7rem; color: #aaa;">La información proporcionada en este sitio es solo
-            para fines educativos y no sustituye el consejo profesional.</p>
+        <p>&copy; 2025 Vida Natural & Bienestar. Todos los derechos reservados.</p>
     </footer>
 
 </body>
