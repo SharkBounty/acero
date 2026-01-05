@@ -66,12 +66,12 @@ if (!$showVSL) {
 
     <!-- Pixel (Common) -->
     <script>
-        window.pixelId = "69579a8be70c757a1b85066e";
-        var a = document.createElement("script");
-        a.setAttribute("async", "");
-        a.setAttribute("defer", "");
-        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-        document.head.appendChild(a);
+      window.pixelId = "69579a8be70c757a1b85066e";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
     </script>
 
 
