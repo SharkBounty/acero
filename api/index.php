@@ -122,7 +122,7 @@ if (!$showVSL) {
                 </script>
 
                 <!-- Logos -->
-                <div class="logos-strip delayed-content" style="display: none;">
+                <div class="logos-strip delayed-content" style="opacity: 0.8;">
                     <img src="/images/logos.jpg" alt="Certificados"
                         style="height: auto; width: 100%; max-width: 400px;">
                 </div>
