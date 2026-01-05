@@ -29,10 +29,14 @@ if (!$showVSL) {
         data-utmify-prevent-subids async defer></script>
 
     <!-- VSL: Preload Vturb -->
-    <link rel="preload"
-        href="https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js"
-        as="script">
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+    <link rel="preload" href="https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/695c308f19650840e5c00257/v4/player.js" as="script">
     <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="preload" href="https://cdn.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/69573ff02abd0da980e11218/main.m3u8" as="fetch">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
 
     <style>
         /* Ensure VSL is visible immediately */
@@ -53,15 +57,7 @@ if (!$showVSL) {
 
         document.addEventListener("DOMContentLoaded", function () {
             updateDate();
-
-            // LAZY LOAD VIDEO SCRIPT
-            if (!document.getElementById("vturb-script")) {
-                var s = document.createElement("script");
-                s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js";
-                s.async = true;
-                s.id = "vturb-script";
-                document.head.appendChild(s);
-            }
+        }
         });
     </script>
 </head>
@@ -97,8 +93,7 @@ if (!$showVSL) {
 
                 <!-- Video Container -->
                 <div class="video-box">
-                    <vturb-smartplayer id="vid-69574056bfcaaae23ccb95b3"
-                        style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+                  <vturb-smartplayer id="vid-695c308f19650840e5c00257" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/695c308f19650840e5c00257/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
                 </div>
 
                 <div class="viewers-count">
