@@ -28,69 +28,50 @@ if (!$showVSL) {
     <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
         data-utmify-prevent-subids async defer></script>
 
-    <!-- VSL: Preload Vturb -->
-    <<<<<<< HEAD <script>!function (i, n) { i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now())
-        }(window, performance);</script>
-        <link rel="preload"
-            href="https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/ab-test/696bf15ac9aefd660868fd5f/player.js"
-            as="script">
-        <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-        <link rel="dns-prefetch" href="https://cdn.converteai.net">
-        <link rel="dns-prefetch" href="https://scripts.converteai.net">
-        <link rel="dns-prefetch" href="https://images.converteai.net">
-        <link rel="dns-prefetch" href="https://m3u8.vturb.net">
-        =======
-        <script>!function (i, n) { i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now()) }(window, performance);</script>
-        <link rel="preload"
-            href="https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/695c308f19650840e5c00257/v4/player.js"
-            as="script">
-        <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-        <link rel="preload"
-            href="https://cdn.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/69573ff02abd0da980e11218/main.m3u8"
-            as="fetch">
-        <link rel="dns-prefetch" href="https://cdn.converteai.net">
-        <link rel="dns-prefetch" href="https://scripts.converteai.net">
-        <link rel="dns-prefetch" href="https://images.converteai.net">
-        >>>>>>> ed679127ffd43857d7f9b86f9d34a5e120c8359d
-        <link rel="dns-prefetch" href="https://api.vturb.com.br">
+    <script>!function (i, n) { i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now()) }(window, performance);</script>
+    <link rel="preload"
+        href="https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/ab-test/696bf15ac9aefd660868fd5f/player.js"
+        as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
 
-        <style>
-            /* Ensure VSL is visible immediately */
-            body .vsl-content {
-                display: block;
-                opacity: 1;
-            }
-        </style>
-
-        <script>
-            // Start Date Timer (Common util but used in VSL)
-            function updateDate() {
-                const el = document.getElementById("dynamicDate");
-                if (!el) return;
-                const now = new Date();
-                const day = String(now.getDate()).padStart(2, '0');
-                const month = String(now.getMonth() + 1).padStart(2, '0');
-                const year = now.getFullYear();
-                el.textContent = `${day}/${month}/${year}`;
-            }
-
-            document.addEventListener("DOMContentLoaded", function () {
-                updateDate();
-<<<<<<< HEAD
-
-                // // LAZY LOAD VIDEO SCRIPT
-                // if (!document.getElementById("vturb-script")) {
-                //     var s = document.createElement("script");
-                //     s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js";
-                //     s.async = true;
-                //     s.id = "vturb-script";
-                //     document.head.appendChild(s);
-                // }
-=======
+    <style>
+        /* Ensure VSL is visible immediately */
+        body .vsl-content {
+            display: block;
+            opacity: 1;
         }
->>>>>>> ed679127ffd43857d7f9b86f9d34a5e120c8359d
-            });
-        </script>
+    </style>
+
+    <script>
+        // Start Date Timer (Common util but used in VSL)
+        function updateDate() {
+            const el = document.getElementById("dynamicDate");
+            if (!el) return;
+            const now = new Date();
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            el.textContent = `${day}/${month}/${year}`;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            updateDate();
+
+            // // LAZY LOAD VIDEO SCRIPT
+            // if (!document.getElementById("vturb-script")) {
+            //     var s = document.createElement("script");
+            //     s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/69574056bfcaaae23ccb95b3/v4/player.js";
+            //     s.async = true;
+            //     s.id = "vturb-script";
+            //     document.head.appendChild(s);
+            // }
+        });
+    </script>
 </head>
 
 <body>
@@ -124,16 +105,10 @@ if (!$showVSL) {
 
                 <!-- Video Container -->
                 <div class="video-box">
-                    <<<<<<< HEAD <vturb-smartplayer id="ab-696bf15ac9aefd660868fd5f"
+                    <vturb-smartplayer id="ab-696bf15ac9aefd660868fd5f"
                         style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>
-                        <script type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/ab-test/696bf15ac9aefd660868fd5f/player.js", s.async = !0, document.head.appendChild(s); 
-                        </script>
-                        =======
-                        <vturb-smartplayer id="vid-695c308f19650840e5c00257"
-                            style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
-                        <script
-                            type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/players/695c308f19650840e5c00257/v4/player.js", s.async = !0, document.head.appendChild(s); </script>
-                        >>>>>>> ed679127ffd43857d7f9b86f9d34a5e120c8359d
+                    <script
+                        type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/7f6bb9c5-ce63-4ab2-992d-8b1617c66949/ab-test/696bf15ac9aefd660868fd5f/player.js", s.async = !0, document.head.appendChild(s); </script>
                 </div>
 
                 <div class="viewers-count">
