@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport adjustment for mobile/desktop -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Rutina</title>
+
+    <!-- Common CSS (Absolute Path) -->
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- UTMify Scripts (Common) -->
+    <!-- <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
+        data-utmify-prevent-subids async defer></script> -->
+
+    <script>
+        // Start Date Timer (Common util but used in VSL)
+        function updateDate() {
+            console.log("updateDate running");
+            const el = document.getElementById("dynamicDate");
+            console.log("Element found:", el);
+            if (!el) return;
+            const now = new Date();
+            el.textContent = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
+            console.log("Text set to:", el.textContent);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("DOMContentLoaded fired");
+            updateDate();
+        });
+    </script>
+</head>
+
+<body>
+
+    <!-- =========================================
+         VSL CONTENT (Mobile / Token)
+         ========================================= -->
+    <div class="vsl-content">
+        <!-- Header Strip -->
+        <div class="top-bar">
+            Presentación disponible solo hasta hoy: <span id="dynamicDate" class="date-highlight">...</span>
+        </div>
+
+        <div class="container">
+            <div class="hero">
+                <h1 class="headline">
+                    <span class="headline-accent">¡ATENCIÓN!</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
